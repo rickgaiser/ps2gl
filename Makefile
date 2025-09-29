@@ -80,7 +80,7 @@ include $(PS2SDK)/samples/Makefile.eeglobal
 	dvp-as -o $@ $<
 
 %_vcl.vsm: %_pp4.vcl
-	vcl -o$@ $<
+	docker run -v .:/mnt/dev -w /mnt/dev -u $(shell id -u) --rm ps2max/vcl:latest vcl -t1 -o$@ $<
 
 %indexed_pp4.vcl: %indexed_pp3.vcl
 	cat $< | cc -E -P -imacros vu1/vu1_mem_indexed.h -o $@ -
