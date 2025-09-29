@@ -28,9 +28,9 @@ jobs:
 
     - name: Compile ps2gl
       run: |
-        make -j $(getconf _NPROCESSORS_ONLN) realclean
-        make -j $(getconf _NPROCESSORS_ONLN) all
-        make -j $(getconf _NPROCESSORS_ONLN) install
+        make realclean
+        make all
+        make install
 
     - name: Compile glut
       run: |
